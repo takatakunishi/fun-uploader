@@ -1,0 +1,94 @@
+body{
+  font-size: 32px;
+  font-family: verdana,sans-serif;
+}
+
+h1{
+  font-size: 60px;
+  font-weight: bold;
+  padding-bottom: 35px;
+  padding-top: 15px;
+}
+
+form{
+  width: 70%;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+textarea{
+  font-size: 27px;
+}
+
+form div{
+  padding-top: 10px;
+}
+
+
+input[type="text"]{
+  font-size: 27px;
+  width: 75%;
+  height:90%;
+}
+
+input[type="submit"]{
+  width: 30%;
+  height: 90%;
+  font-size: 32px;
+}
+input[type="file"]{
+
+  height: 90%;
+  font-size: 32px;
+}
+
+.container{
+  text-align: center;
+  overflow: auto;
+  background: #b0c4de;
+}
+.hidden{
+  display: none;
+}
+
+.title{
+  text-align: center;
+}
+
+button {
+  float : right;
+}
+
+#pics{
+  margin:  15px 15px;
+  background: #ffffe0;
+  overflow: auto;
+}
+
+#pictures{
+  background: red;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#pictures div{
+  margin: 10px 5px;
+  text-align: center;
+  width :450px;
+  height :850px;
+  background: #dcdcdc;
+  overflow: auto;
+}
+
+#pictures div img{
+  margin-top: 15px;
+  width :95%;
+  height :auto;
+}
+#pictures div p{
+  word-break: break-all;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+   <meta charset="utf-8">
+   <title>FUN Illustrators' uploader</title>
+   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/fun-uploader.appspot.com/o/icon%2Ffavicon2.ico?alt=media&token=0be29106-0cb3-4829-a2ec-de3fae04aab9">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">FUN Illustrators' uploader</h1>
+        <!-- autocomplete="off"でformの候補をなくす -->
+      <form autocomplete="off">
+        <div><input type="file" id="setfile"></div>
+        <div>作者: <input type="text" id="auther" placeholder="公表するときの作者名を入れてください"></div>
+        <div>タイトル: <input type="text" id="message" placeholder="タイトルを入力してください"></div>
+        <div>原作名: <input type="text" id="category" placeholder="オリジナル作品の場合はオリジナルと入力"></div>
+        <div><textarea id="explain" rows="8" cols="37" placeholder="作品の説明を入力してください
+          例：見どころ、作品への愛、小話等々"></textarea></div>
+        <div><input type="submit" value="投稿する"></div>
+      </form>
+      <!-- <div id="imgSample" style="width: 200px; height: 200px; background-size:100% auto; background-position : 50% 50%;"></div> -->
+
+
+      <div id="pics">
+        <div id="pictures" class="pictures"></div>
+      </div>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-storage.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+      <script src="js/index.js"></script>
+    </div>
+  </body>
+</html>
