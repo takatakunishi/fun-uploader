@@ -1,0 +1,213 @@
+body{
+  font-size: 32px;
+  font-family: verdana,sans-serif;
+}
+
+h1{
+  font-size: 60px;
+  font-weight: bold;
+  padding-bottom: 35px;
+  padding-top: 15px;
+}
+
+form{
+  width: 70%;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+textarea{
+  font-size: 27px;
+}
+
+form div{
+  padding-top: 10px;
+}
+
+
+input[type="text"]{
+  font-size: 27px;
+  width: 75%;
+  height:90%;
+}
+
+input[type="submit"]{
+  width: 30%;
+  height: 90%;
+  font-size: 32px;
+}
+input[type="file"]{
+
+  height: 90%;
+  font-size: 32px;
+}
+
+.container{
+  text-align: center;
+  overflow: auto;
+  background: #b0c4de;
+}
+.hidden{
+  display: none;
+}
+
+.title{
+  text-align: center;
+}
+
+button {
+  float : right;
+}
+
+#pics{
+  margin:  15px 15px;
+  background: #ffffe0;
+  overflow: auto;
+}
+
+#pictures{
+  width: 100%;
+  background: #EAD9FF;
+  display: inline-flex;
+  flex-flow: row-reverse wrap-reverse;
+  justify-content: space-around;
+}
+
+#pictures div{
+  margin: 10px 5px;
+  text-align: center;
+  width :450px;
+  height :850px;
+  background: #dcdcdc;
+  overflow: auto;
+}
+
+#pictures div img{
+  margin-top: 15px;
+  width :95%;
+  height :auto;
+}
+#pictures div p{
+  word-break: break-all;
+}
+
+
+/* ローディングアニメーション */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  width: 120px;
+  height: 120px;
+}
+
+/* Loading テキスト */
+.spinner span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+/* 1番目のアニメーションの場合 */
+.spinner.type1 {
+  border-radius: 50%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #fff rgba(255, 255, 255, 0.12) rgba(255, 255, 255, 0.12);
+  /* ローディング要素のアニメーションを指定 */
+  -webkit-animation: spinner1_1 1.5s infinite linear forwards;
+          animation: spinner1_1 1.5s infinite linear forwards;
+}
+.spinner.type1 span {
+  /* Loading テキストのアニメーションを指定 */
+  animation: spinner_loading_text 1.5s infinite linear forwards reverse;
+}
+
+/* ローディング要素のアニメーション内容 */
+@-webkit-keyframes spinner1_1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spinner1_1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Loading テキストのアニメーション内容 */
+@-webkit-keyframes spinner_loading_text {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+            transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spinner_loading_text {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+            transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  -webkit-transition: all 1.2s ease; /* 1.2秒でフェードアウト */
+          transition: all 1.2s ease;
+  color: #fff; /* ローディングアニメーションカラー */
+  background-color: #333; /* 背景カラー */
+}
+
+.box.loaded{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}

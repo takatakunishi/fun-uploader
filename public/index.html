@@ -3,14 +3,21 @@
   <head>
    <meta charset="utf-8">
    <title>FUN Illustrators' uploader</title>
-   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+   <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/styles.css">
    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/fun-uploader.appspot.com/o/icon%2Ffavicon2.ico?alt=media&token=0be29106-0cb3-4829-a2ec-de3fae04aab9">
   </head>
   <body>
+    <div id="my-spinner" class="box loaded">
+      <!-- type1 〜 type8 はお好みで -->
+      <div class="spinner type1">
+        <span>uploading...</span>
+      </div>
+    </div>
     <div class="container">
       <h1 class="title">FUN Illustrators' uploader</h1>
         <!-- autocomplete="off"でformの候補をなくす -->
+      <p>画像データ以外はファイル選択しないでください</p>
       <form autocomplete="off">
         <div><input type="file" id="setfile"></div>
         <div>作者: <input type="text" id="auther" placeholder="公表するときの作者名を入れてください"></div>

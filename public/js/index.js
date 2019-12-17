@@ -4,13 +4,11 @@
 
   // Initialize Firebase
   const config = {
-    apiKey: "AIzaSyCCZST--LzYkpzrKDwX0tEuzjwwy1tHR-0",
     authDomain: "fun-uploader.firebaseapp.com",
     databaseURL: "https://fun-uploader.firebaseio.com",
     projectId: "fun-uploader",
     storageBucket: "fun-uploader.appspot.com",
     messagingSenderId: "823374356210",
-    appId: "1:823374356210:web:dca681de5ad87902"
   };
   firebase.initializeApp(config);
   const message = document.getElementById('message');
@@ -36,6 +34,7 @@
   // setfileの変更で処理開始（変更があった要素がeで返される）
   setfile.addEventListener("change", e => {
     var file = e.target.files;
+    console.log(JSON.stringify(file));
     // fileの名前を取得
     file_name = file[0].name;
     // blob形式に変換
@@ -50,6 +49,7 @@
     const val = message.value.trim();
     const exp = explain.value.trim();
     const aut = auther.value.trim();
+    const cat = category.value.trim();
 
     var uploadRef = storage.ref('images/').child(file_name);
     console.log(uploadRef);
@@ -62,10 +62,18 @@
     }else if (aut ==="") {
       window.alert('作者名を入力してください');
       return;
+    }else if (cat ==="") {
+      window.alert('カテゴリーを入力してください');
+      return;
     }
     message.value ='';
     explain.value ='';
     auther.value ='';
+    category.value ='';
+    const spinner = document.getElementById('my-spinner');
+
+    // .box に .loaded を追加してローディング表示を消す
+    spinner.classList.remove('loaded');
     // storageのarea_imagesへの参照を定義
 
     uploadRef.put(blob).then(snapshot => {
@@ -77,7 +85,8 @@
           created: firebase.firestore.FieldValue.serverTimestamp(),
           url:url,
           explain:exp,
-          auther:aut
+          auther:aut,
+          category:cat
         }).then(doc=>{
           console.log(`${doc.id} added!`);
         }).catch(error => {
@@ -108,19 +117,28 @@
         const mdata = d.message;
         const desc = d.explain;
         const aut = d.auther;
+        const cat = d.category;
         const p = document.createElement('p');
         const p2 = document.createElement('p');
         const p3 = document.createElement('p');
+        const p4 = document.createElement('p');
         p3.textContent = `作者: ${aut}`;
         box.appendChild(p3);
         p.textContent = `タイトル名: ${mdata}`;
         box.appendChild(p);
+        p4.textContent = `カテゴリー: ${cat}`;//
+        box.appendChild(p4);
         p2.textContent = `説明文: ${desc}`;
         box.appendChild(p2);
       }
+      const spinner = document.getElementById('my-spinner');
+      // // .box に .loaded を追加してローディング表示を消す
+      spinner.classList.add('loaded');
+
     });
   },error=>{
 
   });
+
 
 })();
